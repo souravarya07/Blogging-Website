@@ -14,7 +14,7 @@
 	<name>BloggingWebsite</name>
 	<description>Our first blog website</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 		<repackage.classifier/>
 		<spring-native.version>0.12.1</spring-native.version>
 	</properties>
@@ -55,45 +55,45 @@
 					</image>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.experimental</groupId>-->
-<!--				<artifactId>spring-aot-maven-plugin</artifactId>-->
-<!--				<version>${spring-native.version}</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<id>test-generate</id>-->
-<!--						<goals>-->
-<!--							<goal>test-generate</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--					<execution>-->
-<!--						<id>generate</id>-->
-<!--						<goals>-->
-<!--							<goal>generate</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.hibernate.orm.tooling</groupId>-->
-<!--				<artifactId>hibernate-enhance-maven-plugin</artifactId>-->
-<!--				<version>${hibernate.version}</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<id>enhance</id>-->
-<!--						<goals>-->
-<!--							<goal>enhance</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<failOnError>true</failOnError>-->
-<!--							<enableLazyInitialization>true</enableLazyInitialization>-->
-<!--							<enableDirtyTracking>true</enableDirtyTracking>-->
-<!--							<enableAssociationManagement>true</enableAssociationManagement>-->
-<!--							<enableExtendedEnhancement>false</enableExtendedEnhancement>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
+			<plugin>
+				<groupId>org.springframework.experimental</groupId>
+				<artifactId>spring-aot-maven-plugin</artifactId>
+				<version>${spring-native.version}</version>
+				<executions>
+					<execution>
+						<id>test-generate</id>
+						<goals>
+							<goal>test-generate</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.hibernate.orm.tooling</groupId>
+				<artifactId>hibernate-enhance-maven-plugin</artifactId>
+				<version>${hibernate.version}</version>
+				<executions>
+					<execution>
+						<id>enhance</id>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+						<configuration>
+							<failOnError>true</failOnError>
+							<enableLazyInitialization>true</enableLazyInitialization>
+							<enableDirtyTracking>true</enableDirtyTracking>
+							<enableAssociationManagement>true</enableAssociationManagement>
+							<enableExtendedEnhancement>false</enableExtendedEnhancement>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
@@ -130,31 +130,36 @@
 					<artifactId>junit-platform-launcher</artifactId>
 					<scope>test</scope>
 				</dependency>
+				<dependency>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+					<scope>test</scope>
+				</dependency>
 			</dependencies>
 			<build>
 				<plugins>
-<!--					<plugin>-->
-<!--						<groupId>org.graalvm.buildtools</groupId>-->
-<!--						<artifactId>native-maven-plugin</artifactId>-->
-<!--						<version>${native-buildtools.version}</version>-->
-<!--						<extensions>true</extensions>-->
-<!--						<executions>-->
-<!--							<execution>-->
-<!--								<id>test-native</id>-->
-<!--								<phase>test</phase>-->
-<!--								<goals>-->
-<!--									<goal>test</goal>-->
-<!--								</goals>-->
-<!--							</execution>-->
-<!--							<execution>-->
-<!--								<id>build-native</id>-->
-<!--								<phase>package</phase>-->
-<!--								<goals>-->
-<!--									<goal>build</goal>-->
-<!--								</goals>-->
-<!--							</execution>-->
-<!--						</executions>-->
-<!--					</plugin>-->
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<version>${native-buildtools.version}</version>
+						<extensions>true</extensions>
+						<executions>
+							<execution>
+								<id>test-native</id>
+								<phase>test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>build-native</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
