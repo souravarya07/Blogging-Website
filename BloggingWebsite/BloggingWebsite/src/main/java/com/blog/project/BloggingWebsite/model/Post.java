@@ -24,15 +24,12 @@ public class Post {
     private String content;
 
     @Column
-    @NotEmpty
     private Date createdOn;
 
     @Column
-    @NotEmpty
     private Date updatedOn;
 
     @Column
-    @NotEmpty
     private String userName;
 
 //    @Column(name = "photo", columnDefinition = "BLOB")
